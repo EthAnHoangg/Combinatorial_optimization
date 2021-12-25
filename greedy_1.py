@@ -51,14 +51,14 @@ if __name__ == '__main__':
 	#READ INPUT:
 	with open(name, 'r') as f:
 		input = json.load(f)
-	n, k, d, s = input['N'], input['k'], input['d'], input['t']
+	n, k, d, t = input['N'], input['k'], input['d'], input['t']
 	print('NUMBER OF HOUSES', n)
 	print('NUMBER OF WORKERS', k)
 	INF = np.inf
 	# broadcasting to combine matrix d
 	# to matrix t (size n+1 x n+1), which is assymetric
-	print(np.array(s))
-	t = np.array(s) + np.array(d)
+	print(np.array(t))
+	t = np.array(t) + np.array(d)
 	for i in range (n+1):
 		for j in range (n+1):
 			if i == j:
@@ -91,8 +91,8 @@ if __name__ == '__main__':
 		for city in route_driver[i]:
 			print(city, end = ' -> ')
 		print('With the cost', cost_driver[i])
-		for j in range (len(route_driver[i]) - 1):
-			print('t =', s[route_driver[i][j]][route_driver[i][j+1]], 'd =', d[route_driver[i][j+1]])
+		# for j in range (len(route_driver[i]) - 1):
+		# 	print('t =', s[route_driver[i][j]][route_driver[i][j+1]], 'd =', d[route_driver[i][j+1]])
 		print('-' * 100)
 
 	print('The objective value =', objective_value)
